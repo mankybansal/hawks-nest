@@ -1,0 +1,88 @@
+<html>
+
+<title>CyberHawk Stats</title>
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+	getStats()
+});
+		
+		
+function serverRequest(request_name, data, callback) {
+    
+	var REQUEST_URL = "https://librorum.in/cyberhawk/api";
+    var API_KEY = "fUJxtW62tresIB7m";
+   
+	data["API_KEY"] = API_KEY;
+    data["REQUEST"] = request_name;
+    data["SECURITY"] = "OFF";
+
+	
+    //console.log("sending request (" + request_name + ")", data);
+    //console.log("stringified: ", jQuery.param(data));
+
+    var requestFn = function() {
+        $.ajax({
+            type: "GET",
+            url: REQUEST_URL,
+            data: data,
+            timeout: 20000 // sets timeout
+        }).done(function(response) {
+            response = JSON.parse(response);
+            response.success = true;
+           // console.log("response for (" + request_name + "): ", response);
+			
+			var val = $(".answerStatus").text();
+			if(val === "THE HAWK IS UNABLE TO REACH IT'S NEST.")
+			{
+					$(".answerStatus").empty().append("THE HAWK IS READY.");
+					$(".answerStatus").css('background','');
+					$(".loginMessage").hide();
+			}
+			
+            callback && callback(response);
+			
+        }).fail(function(){
+			showNoInternet();
+		});;
+    };
+    setTimeout(requestFn, 1000);
+}
+
+var REQUESTS = {
+    get_stats: function(callback) {
+        var data = {}
+        serverRequest("getStats", data, callback);
+    }
+};
+
+function getStats(){
+	REQUESTS.get_stats(function(response) {	
+		$('body').append("<br>ONLINE PLAYERS: " + response["data"]["onlineCount"]);
+		$('body').append("<br>HIGHEST LEVEL: " + response["data"]["highestLevel"]);
+		$('body').append("<br>WRONG ANSWERS: " + response["data"]["wrongAnswers"]);
+		$('body').append("<br>MAX PLAYERS STUCK ON: " + response["data"]["maxPlayers"]);
+		$('body').append("<br>LEADERS: ");
+		
+		var data = response["data"]["result"];
+		
+		data.forEach(function(item){
+			$('body').append("<br>"
+								+item['NAME']+"<br>"+item['EMAIL']+"<br>"+item['LEVEL']+"<br>"
+							);
+		});
+		
+	});
+}	
+
+
+		
+</script>
+
+<body>
+
+
+</body>
+
+</html>

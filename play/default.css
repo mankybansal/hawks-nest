@@ -1,0 +1,787 @@
+html, body {
+		width: 100%;
+		height: 100%;
+		padding: 0px;
+		margin: 0;
+		background: url('bg.png') #000;
+		background-size: 150px 150px; 
+		min-width: 600px;
+		font-family: SergoeLight;
+		color: white;
+		text-align: center;
+	}
+	
+	html { overflow-y: hidden; }
+	
+	.box {
+		display: inline-block;
+		background: #000; 
+		height: 450px; 
+		width: 300px; 
+		margin: 20px;
+		vertical-align: middle;
+		overflow: hidden;
+		position: relative;
+	}
+	
+	.questionBox {
+		min-width: 450px;
+		border: 1px solid white;
+		background: #537A78;
+
+	}
+	
+	.header {
+		height: 60px; 
+		background: #111;
+		box-shadow: 0px 0px 30px rgba(0,0,0,1);
+		width: 100%;
+		float: top;
+		min-width: 600px; 
+		box-sizing: border-box; 
+		padding: 0px 20px 0px 20px; 
+		position: fixed; 
+		top: 0;
+	}
+	
+	.contentContainer {
+		width: 100%;
+		min-width: 1250px; 
+		text-align: center; 
+		display: inline-block;
+	}
+	
+	
+	
+	
+	.loginContainer {
+		width: 100%;
+		min-width: 400px;
+		text-align: center;
+		display: inline-block;
+	}
+	
+	
+	
+	.teamContainer {
+		width: 100%;
+		min-width: 400px;
+		text-align: center;
+		display: inline-block;
+	}
+	
+	
+	
+	.registerContainer {
+		width: 100%;
+		min-width: 1250px;
+		text-align: center;
+		display: inline-block;
+	}
+	
+	.loginMessage, .registerMessage {
+		height: 80px;
+		margin-bottom: 15px;
+		background: #333;
+		display: none;
+		box-sizing: border-box;
+		padding: 30px;
+		font-size: 20px;
+	}
+	
+	.loginBox {
+		display: inline-block;
+		background: #000; 
+		height: 480px; 
+		width: 380px; 
+		margin: 20px;
+		vertical-align: middle;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0px 0px 150px rgba(255,255,255,0.5);
+	}
+	.teamBox {
+		display: inline-block;
+		background: #EEE; 
+		height: 450px; 
+		width: 450px; 
+		margin: 20px;
+		vertical-align: middle;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0px 0px 20px rgba(255,255,255,0.1);
+	}
+	
+	.registerBox {
+		display: inline-block;
+		background: #EEE; 
+		height: 500px; 
+		width: 380px; 
+		margin: 20px;
+		vertical-align: middle;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0px 0px 20px rgba(255,255,255,0.1);
+	}
+	
+	.footer {
+		height: 60px; 
+		background: #111;
+		box-shadow: 0px 0px 30px rgba(0,0,0,1);
+		width: 100%;
+		min-width: 600px; 
+		box-sizing: border-box;  
+		position: fixed; 
+		bottom: 0;
+	}
+	
+	.cyberhawkTitle {
+		background: rgba(255,255,255,0.1);
+		box-sizing: border-box;
+		padding: 17.5px 20px 17.5px 20px;
+		float: left;
+		display: inline-block;
+		height: 100%;
+		font-size: 20px; 
+		color: #EEE;
+	}
+	
+	.previousQuestion {
+		display: inline-block;
+		float: top;
+		width: 55%;
+		padding: 10px;
+		border: 1px solid #5AC7F2;
+		margin-top: 20px;
+		background: #EEE;
+		color: black;
+		font-size: 18px;
+		
+	}
+	
+	.storyContentContainer{
+		width: calc(100% - 160px);
+		float: left;
+		height: 100%;
+	}
+	
+	
+	.storyImages {
+		width: 70%;
+		height: 100%;
+		background: black;
+		float: left;
+	}
+	
+	
+	.storyTexts {
+		width:  30%;
+		box-sizing: border-box;
+		padding: 100px 20px 100px 20px;
+		overflow-y: auto;
+		background: #FFF;
+		height: 100%;
+		float: left;
+	}
+	
+	.storyText {
+		font-size: 20px;
+		display: none;
+	}
+	
+	.storySpacer {
+		width: 100%;
+	}
+	.storyImage {
+		display: none;
+		max-width: 100%;
+		max-height: 100%;
+		margin: 0 auto;
+	}
+	
+	.storySlider {
+		width: 100%;
+		height: 100%;
+		background: #000;
+	}
+	
+	.loadStoryContent {
+		width: 100%;
+		height: calc(100% - 50px);
+		float: top;
+		background: red;
+	}
+	
+	.storyProgress {
+		width: 100%;
+		height: 50px;
+		background: #333;
+		color: white;
+		box-sizing: border-box;
+		padding-top: 13px;
+		font-size: 20px;
+		float: top;
+	}
+	
+	.navPanel {
+		height: 100%;
+		width: 80px;
+		background: #DDD;
+		cursor: pointer;
+		transition: all ease .2s;
+	}
+	
+	.navPanel:hover {
+		background: #AAA;
+	}
+	
+	.leftNav {
+		float: left;
+	}
+	
+	.rightNav {
+		float: right;
+	}
+	
+	.prometheusLogo {
+		
+		float: left;
+		margin-left: 200px;
+		height: 100%;
+		width: 60px; 
+		background: rgba(255,255,255,0.2);
+	}
+	
+	.myName {
+		background: rgba(255,255,255,0.05);
+		box-sizing: border-box;
+		padding: 17.5px 20px 17.5px 20px;
+		float: right;
+		margin-right: 5px;
+		display: inline-block;
+		height: 100%;
+		font-size: 20px; 
+		color: #CCC;
+	}
+	
+	.logout {
+		background: rgba(255,255,255,0.05);
+		box-sizing: border-box;
+		padding: 17.5px 20px 17.5px 20px;
+		float: right;
+		margin-right: 200px;
+		display: inline-block;
+		height: 100%;
+		font-size: 20px; 
+		color: #7DB2AF;
+		transition: all ease 0.5s;
+	}
+	
+	.logout:hover {
+		background: rgba(255,255,255,0.2);
+	}
+	
+	.footerButton {
+		background: rgba(255,255,255,0.05);
+		box-sizing: border-box;
+		padding: 17.5px 20px 17.5px 20px;
+		float: right;
+		margin-right: 5px;
+		display: inline-block;
+		height: 100%;
+		font-size: 20px; 
+		color: #7DB2AF;
+		transition: all ease 0.5;
+	}
+	
+	.footerButton:hover {
+		background: rgba(255,255,255,0.05);
+	}
+	
+	.menubutton {
+			height: 40px; 
+			margin-top: 10px;
+			display: inline-block;
+			margin-left: 5px;
+			margin-right: 5px;
+			font-size: 16px !important;
+			background: #222;
+			color: #EEE;
+			box-sizing: border-box;
+			padding: 10px 7px 6px 7px;
+			cursor: pointer;
+			transition: all ease .2s;
+			
+	}
+	
+	.menubutton:hover {
+			background: #444;
+	}
+	
+	.achievementContainer {
+		width: 180px;
+		height: 260px;
+		padding: 10px 15px 10px 15px;
+		box-sizing: border-box;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 10px;
+		background:white;
+		border: 1px solid #5AC7F2;
+		border-radius: 5px;
+	}
+	.achievementTitle {
+		font-size: 18px;
+		width: 100%;
+		
+	}
+	.achievementDesc {
+		
+		width: 100%;
+		margin-top: 5px;
+		font-size: 16px;
+		color: #555;
+	}
+	
+	.overlayPanel {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: rgba(255,255,255, 0.97);
+		text-align: center;
+		box-sizing: border-box;
+		font-size: 40px;
+		color: #000;
+	}
+
+	
+	.menuContainer {
+		z-index: 999;
+		position: absolute;
+		text-align: center;
+		font-size: 18px; 
+		width: 100%;
+		height: 60px;
+		background: #DDD;
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+		box-sizing: border-box;
+	}
+	
+	.levelContainer {
+		font-size: 30px; 
+		margin-top: 60px;
+		text-align: left;
+		width: 100%;
+		padding: 20px 40px 20px 40px; 
+		background: #395655;
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+		box-sizing: border-box;
+	}
+	
+	@font-face {
+		font-family: SergoeLight;
+		src: url('SergoeLight.ttf');
+	}
+	
+	.mainLogo {
+		height: 250px;
+		margin-top: 0px; 
+		opacity: 1;
+	}
+	
+	
+	.loginLogo {
+		height: 170px;
+		margin-top: 20px; 
+		opacity: 1;
+	}
+	
+	
+	.titleText {
+		font-size: 35px; 
+		width: 100%;
+		margin-top: 10px; 
+		color: #EEE;
+	}
+	
+	.subTitleText {
+		font-size: 20px; 
+		width: 100%;
+		color: #AAA;
+	}
+
+	.clickable {
+		cursor: pointer;
+		transition: all ease 0.5s;
+	}
+	
+	.button {
+		cursor: pointer;
+		padding: 12px 15px 8px 15px; 
+		background: #2D4241;
+		color: white;
+		font-size: 20px;
+		height: 50px;
+		display: inline-block;
+		box-sizing: border-box;
+		min-width: 150px;
+		transition: all ease 0.5s;
+	}
+	
+	.button:hover {
+		box-shadow: 0px 0px 20px rgba(0,0,0,.5);
+		background: #3B5172;
+	}
+	
+	.notifications {
+		display: inline-block;
+		height: 100px;
+		width: 100%;
+		background: #CCC;
+		box-sizing: border-box;
+		padding: 18px 50px 20px 50px; 
+		font-size: 18px;
+		color: #222;
+	}
+	
+	.question {
+		width: 90%;
+		position: relative;
+		z-index: 100;
+		margin: 0 auto;
+		margin-top: 20px ;
+		box-sizing: border-box;
+		padding: 20px; 
+		color: #EEE;
+		background: rgba(255,255,255,0.05);
+		font-size: 20px;
+		
+	}
+	
+	.answerContainer {
+		height: 70px;
+		position: relative;
+		z-index: 100;		
+		width: 100%;
+		background: rgba(0,0,0,0.1);
+		float: bottom;
+		position: absolute; 
+		bottom: 40px;
+		box-sizing: border-box;
+		padding: 10px;
+		
+	}
+	
+	.answerStatus {
+		height: 40px; 
+		width: 100%;
+		background: #395655;
+		float: bottom;
+		position: absolute; 
+		bottom: 0;
+		text-transform: uppercase;
+		font-size: 15px;
+		color: #FFF;
+		text-align: left;
+		box-sizing: border-box;
+		padding: 11.5px 30px 0px 30px;
+	}
+	
+	.input {
+		border: 0px;
+		outline: none;
+		padding: 15px;
+		height: 50px;
+		width: 300px;
+		margin-left: 15px;
+		background: white;
+		box-sizing: border-box;
+		font-size: 16px; 
+	}
+	
+	
+	.inputLogin {
+		border: 0px;
+		outline: none;
+		padding: 15px;
+		height: 50px;
+		width: 300px;
+		margin-bottom: 10px; 
+		background: white;
+		box-sizing: border-box;
+		font-size: 16px; 
+	}
+	
+	.answerSubmit {
+		width: 100px;
+		height: 50px;
+		background: #2D4241;
+		cursor: pointer;
+		box-sizing: border-box;
+		padding: 15px;
+		float: left;
+		transition: all ease 0.5s;
+	}
+	
+	
+	.answerSubmit:hover {
+		background: #3B5172;
+	}
+	
+	
+	.SPACER-20 {
+		width: 100%;
+		height: 20px;
+	}	
+	
+	
+	.SPACER-10 {
+		width: 100%;
+		height: 10px;
+	}	
+	
+	.promLogo {
+		width: 80%;
+		height: 80%;
+		margin-top: 5px;
+	}
+	
+	.circle {
+		width: 0px;
+		height: 0px;
+		margin-left: 0px;
+		-webkit-border-radius: 300px;
+		-moz-border-radius: 300px;    
+		border-radius: 300px;
+		opacity: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 0;
+	}
+	
+	.leaderBoard{
+		background: #222;
+		width: 100%;
+		height: 150px;
+		position: absolute;
+		bottom: 0;
+	}
+	
+	.positionBar {
+		width: 250px;
+		height: 20px;
+		background: #537A78; 
+		margin: 0 auto;
+		margin-top: 20px; 
+		margin-bottom: 15px; 
+	}
+	
+	.myPosition {
+		width: 40px;
+		height: 20px; 
+		background: #DDD;
+		color: black;
+		box-sizing: border-box;
+		padding-top: 2px;
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: 100px;
+	}
+	
+	.positionType {
+		margin-top: 5px;
+		font-size: 18px; 
+		color: #DDD;
+	}
+	
+	.recentTries {
+		background: #CCC;
+		width: 100%; 
+		padding: 15px;
+		box-sizing: border-box;
+		height: 300px;
+		color: black;
+	}
+	
+	#rulesBox {
+		display: none;
+	}
+	
+	#hintRecentBox {
+		display: none;
+	}
+	
+	.container {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.myPanel {
+		display: none;
+		width: 100%;
+		height: calc(100% - 50px);
+		text-align: center;
+		overflow-y: auto;
+	}
+	
+		
+	a {
+		color: #FFFFFF;
+		margin-top: 10px;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	
+	.rulesContainer {
+		width: 100%;
+		padding: 0px 20px 0px 20px;
+		color: #333;
+		color: #EEE;
+		font-size: 18px;
+		box-sizing: border-box;
+		display: inline-block;
+	}
+	
+	/* HIDE BEFORE LOGIN */
+	.contentContainer {
+		display: none;
+	}
+	
+	.registerContainer {
+		display: none;
+	}
+	
+	.teamBoxContainer {
+		display: none;
+	}
+	
+	.logout {
+		display: none;
+	}
+	
+	.myName {
+		display: none;
+	}
+	/* END HIDE */
+	
+
+	 @media only screen and (max-width: 600px) {
+		html, body {
+                width: 100%;
+				height: 100%;
+					min-width: 300px;
+					overflow-y: auto;
+        }
+		
+		.questionBox {
+				margin-top: 100px;
+				min-width: 300px;
+				
+		}
+		
+		#playerAnswer{
+				width: 140px;
+		}
+		.contentContainer {
+			min-width: 200px;
+			padding: 0px;
+			height: 100%;
+			
+		}
+		
+		.cyberHawkTeam {
+			display: none;
+		}
+		.fbLink {
+			display: none;
+		}
+		
+		.loginBox {
+			box-shadow: none;
+			margin-top: 100px;
+			
+		}
+		
+		.leftPanelcontainer{
+			 display: none; 
+		 }
+		 .cyberhawkTitle {
+			display: none;
+		 }
+		 
+		.registerContainer {
+				width: 100%;
+				min-width: 300px;
+				height: 100%;
+				overflow: auto;
+		 }
+		 
+		 .prometheusLogo {
+			margin-left: 0px;
+		 }
+		 
+		 .logout {
+			margin-right: 0px;
+		 }
+		 
+		 .header {
+
+			 width: 100%;
+			 min-width: 300px;
+			 padding: 0px;
+			 z-index: 999;
+		 }
+		 
+		 	.loginBox {
+				width: 100%;
+				margin: 0;
+				margin-top: 50px;
+				margin-bottom: 100px;
+			}
+			
+		 	.registerBox {
+				
+				width: 100%;
+					margin: 0;
+					min-width: 300px;
+					margin-top: 100px;
+					margin-bottom: 150px;
+			}
+			
+			.loginContainer {
+			padding: 0px;
+				min-width: 300px;
+				width: 100%;
+					height: 100%;
+				overflow: auto;
+			}
+		 
+		 
+	.footer {
+		
+			 width: 100%;
+			 min-width: 300px;
+			 padding: 0px;
+			  z-index: 999;
+	}
+		 
+		 .menuContainer {
+			 display: none;
+		 }
+		 
+		 .levelContainer {
+			 margin-top: 0px;
+		 }
+		 
+		.rightPanelcontainer{
+			 width: 100%;
+			 position: initial;
+			 margin-bottom: 300px;
+		 }
+	 }

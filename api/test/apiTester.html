@@ -1,0 +1,561 @@
+<html>
+
+	<style>
+	html {
+		font-size: 18px;
+		width: 100%;
+		height: 100%;
+		font-family: calibri;
+	}
+	
+	form {
+		display: inline-block;
+		width: 300px;
+		min-height: 300px;
+		vertical-align: top;
+		margin: 10px;
+		background: #EEEEEE;
+		padding: 15px;
+		box-sizing: border-box;
+	}
+	
+	input.text {
+		width: 270px;
+		height: 40px;
+		padding: 0px 10px 0px 10px;
+		outline: none;
+		border: 2px solid #DDD;
+		background: #EEE;
+		margin-top: 2px; 
+	}
+	input.button {
+		width: 100px;
+		height: 40px;
+		outline: none;
+		border: 0px;
+		color: white;
+		background: #333;
+		margin-top: 5px; 
+	}
+	</style>
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	
+	<script>
+	var api_key = "fUJxtW62tresIB7m";
+	var sessionID;
+	
+	$(document).ready(function(){
+	
+		$("#clearMe").click(function(){
+			$('#HTTPSTATUS').text("");
+			$('#RESPONSE').text("");
+		}); 
+		
+		$("#LOGIN-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=playerLogin&" + $("#LOGIN-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+				
+				var json = JSON.parse(data);
+				sessionID = json['data']['sessionID'];
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});	
+		
+		$("#FORGOT-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=forgotPassword&" + $("#FORGOT-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+				
+				var json = JSON.parse(data);
+				sessionID = json['data']['sessionID'];
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});	
+		
+		$("#MODLOGIN-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=moderatorLogin&" + $("#MODLOGIN-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+				
+				var json = JSON.parse(data);
+				sessionID = json['data']['sessionID'];
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		
+		$("#REGISTER-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=register&" + $("#REGISTER-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+	
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+			
+		$("#SETQUESTION-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=setQuestion&sessionID=" + sessionID + "&" +  $("#SETQUESTION-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+	
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+		$("#SETHINT-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=setHint&sessionID=" + sessionID + "&" +  $("#SETHINT-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+	
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+			
+		$("#DELQUESTION-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=deleteQuestion&sessionID=" + sessionID + "&" +  $("#DELQUESTION-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+	
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+			
+		$("#DELHINT-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=deleteHint&sessionID=" + sessionID + "&" +  $("#DELHINT-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+	
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+		$("#ANSWER-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=checkAnswer&sessionID=" + sessionID +"&"+ $("#ANSWER-FORM").serialize();;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+				
+		$("#LOGOUT-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=playerLogout&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});	
+		
+		$("#GETMOD-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getModerator&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});	
+		$("#MODLOGOUT-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=moderatorLogout&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+		$("#getQuestion").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getQuestion&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+			});	
+			
+			$("#GETPLAYER-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getPlayer&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});	
+		$("#getHints").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getHints&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		
+		$("#getRecent").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getRecent&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		$("#getPreviousQuestions").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getPreviousQuestions&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		
+		$("#MODALLQUES-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getAllQuestions&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		
+		$("#ACHIEVEMENTS-FORM").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getAchievements&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+		
+		$("#getMyPosition").submit(function(e){
+			e.preventDefault();
+			var dataString = "API_KEY="+api_key + "&REQUEST=getMyPosition&sessionID=" + sessionID;
+			jQuery.ajax({'url': '../index.php', data: dataString, 
+			success: function(data, test, XMLHttpRequest){
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$('#HTTPSTATUS').text(XMLHttpRequest.status);
+				$('#RESPONSE').text(XMLHttpRequest.responseText);
+			}
+			});
+
+		});
+			
+	});	
+
+	
+	</script>
+	
+	<div style='
+    width: 100%; padding: 30px; background: #333; color: white; box-sizing: border-box;'>
+	
+		
+	<div style='font-size: 22px;'><b>RESPONSE:</b><span  style='color: #ddd;'id="RESPONSE"></span></div>
+	<div style='font-size: 22px;'><b>HTTP STATUS:</b> <span style='color: #ddd;'id="HTTPSTATUS"></span></div>
+	<div id='clearMe' style=' padding: 5px; cursor: pointer; background: #555; margin-top: 10px;  display: inline-block;font-size: 18px;'>CLEAR</div>
+	</div>
+	
+	
+	
+	<br>
+
+	<hr>
+		<div style='padding: 30px;'>
+		<text style='font-size: 30px;'>PLAYER FUNCTIONS</text>
+		</div>
+		<hr>
+
+
+	
+	<div >
+		
+		<form  method='POST' id="LOGIN-FORM" accept-charset='UTF-8'>
+			<b>LOGIN</b><br>
+			<input placeholder="EMAIL" class='text'  type='textbox' value="" name="EMAIL"><br>
+			<input placeholder="PASSWORD"  class='text'  type='password'  value="" name="PASSWORD"><br>
+			<input class='button'  type='submit' name="submit">
+			
+		</form>
+		<form  method='POST' id="FORGOT-FORM" accept-charset='UTF-8'>
+			<b>FORGOT PASSWORD</b><br>
+			<input placeholder="EMAIL" class='text'  type='textbox' value="" name="EMAIL"><br>
+			<input class='button'  type='submit' name="submit">
+			
+		</form>
+		<form  method='POST' id="LOGOUT-FORM" accept-charset='UTF-8'>
+			<b>LOGOUT</b><br>
+			<input class='button'  type='submit' name="submit">
+		</form>
+		<form  method='POST' id="getQuestion" accept-charset='UTF-8'>
+			<b>GET QUESTION</b><br>
+			<input class='button'  type='submit' name="submit">
+		</form>
+		<form  method='POST' id="getHints" accept-charset='UTF-8'>
+			<b>GET HINTS</b><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		<form  method='POST' id="getRecent" accept-charset='UTF-8'>
+			<b>GET RECENT</b><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		<form  method='POST' id="getPreviousQuestions" accept-charset='UTF-8'>
+			<b>GET PREVIOUS QUESTIONS</b><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		<form  method='POST' id="ACHIEVEMENTS-FORM" accept-charset='UTF-8'>
+			<b>GET ACHIEVEMENTS</b><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		<form  method='POST' id="getMyPosition" accept-charset='UTF-8'>
+			<b>GET POSITION</b><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		
+		<form  method='POST' id="ANSWER-FORM" accept-charset='UTF-8'>
+			<b>CHECK ANSWER</b><br>
+			<input placeholder="ANSWER"  class='text' type='textbox' name="ANSWER"><br>
+			<input class='button' type='submit' name="submit">
+			
+		</form>
+		
+			
+		<form  method='POST' id="GETPLAYER-FORM" accept-charset='UTF-8'>
+			<b>GET PLAYER</b><br>
+			<input class='button' type='submit' name="submit">
+			
+		</form>
+		
+		<form  method='POST' id="REGISTER-FORM" accept-charset='UTF-8'>
+			<b>REGISTER</b><br>
+			<input placeholder= "NAME" class='text' type='textbox' name="NAME"><br>
+			<input placeholder= "EMAIL" class='text' type='textbox' name="EMAIL"><br>
+			<input placeholder= "PASSWORD"  class='text' type='textbox' name="PASSWORD"><br>
+			<input placeholder= "PHONE" class='text' type='textbox' name="PHONE"><br>
+			<input placeholder= "COLLEGE"  class='text' type='textbox' name="COLLEGE"><br>
+			<input class='button' type='submit' name="submit">
+			
+		</form>
+		
+		<br>
+		<br>
+		<hr>
+		<div style='padding: 30px;'>
+		<text style='font-size: 30px;'>MODERATOR FUNCTIONS</text>
+		</div>
+		<hr>
+		
+		
+			
+		<form  method='POST' id="MODLOGIN-FORM" accept-charset='UTF-8'>
+			<b>MODERATOR LOGIN</b><br>
+			<input placeholder="EMAIL" class='text'  type='textbox' value="" name="EMAIL"><br>
+			<input placeholder="PASSWORD" class='text'  type='password'  value="" name="PASSWORD"><br>
+			<input class='button'  type='submit' name="submit">
+			
+		</form>
+		
+			
+		<form  method='POST' id="GETMOD-FORM" accept-charset='UTF-8'>
+			<b>GET MODERATOR</b><br>
+			<input class='button'  type='submit' name="submit">
+		</form>
+		<form  method='POST' id="MODLOGOUT-FORM" accept-charset='UTF-8'>
+			<b>MODERATOR LOGOUT</b><br>
+			<input class='button'  type='submit' name="submit">
+		</form>
+		
+		
+		
+		<form  method='POST' id="MODALLQUES-FORM" accept-charset='UTF-8'>
+			<b>MODERATOR GET ALL QUESTIONS</b><br>
+			<input class='button'  type='submit' name="submit">
+		</form>
+		
+		<form  method='POST' id="SETQUESTION-FORM" accept-charset='UTF-8'>
+			<b>SET QUESTION</b><br>
+			<input placeholder="QUESTION" class='text' type='textbox' name="QUESTION"><br>
+			<input placeholder="ANSWER"  class='text' type='textbox' name="ANSWER"><br>
+			<input class='text' placeholder="IMG_LINK" type='textbox' name="IMG_LINK"><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+				
+				<!-- The data encoding type, enctype, MUST be specified as below -->
+		<form enctype="multipart/form-data" action="../upload.php" method="POST">
+			<!-- MAX_FILE_SIZE must precede the file input field -->
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<!-- Name of input element determines name in $_FILES array -->
+			Send this file: <input  name="userfile" type="file" />
+			<input class='button' type="submit" value="Send File" />
+		</form>
+						
+		<form  method='POST' id="DELQUESTION-FORM" accept-charset='UTF-8'>
+			<b>DELETE QUESTION</b><br>
+			<input placeholder="QUESTION ID"  class='text' type='textbox' name="QUESTION_ID"><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		
+		
+			
+		<form  method='POST' id="SETHINT-FORM" accept-charset='UTF-8'>
+			<b>SET HINT</b><br>
+			<input placeholder="QUESTION ID" class='text' type='textbox' name="QUESTION_ID"><br>
+			<input placeholder="HINT" class='text' type='textbox' name="HINT"><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		
+	
+			
+		<form  method='POST' id="DELHINT-FORM" accept-charset='UTF-8'>
+			<b>DELETE HINT</b><br>
+			<input placeholder="HINT ID" class='text' type='textbox' name="HINT_ID"><br>
+			<input class='button' type='submit' name="submit">
+		</form>
+		
+	
+	</div>
+
+</html>
